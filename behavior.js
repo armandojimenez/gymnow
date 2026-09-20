@@ -82,6 +82,9 @@
     document.querySelectorAll('[data-lang-select]').forEach(function (select) {
       select.value = lang;
       select.setAttribute('aria-label', messages.language || 'Language');
+      var container = select.closest('.language-select');
+      var compactValue = container && container.querySelector('[data-current-lang-value]');
+      if (compactValue) compactValue.textContent = lang.toUpperCase();
     });
     document.querySelectorAll('[data-policy="terms"]').forEach(function (link) {
       link.href = lang === 'es'
